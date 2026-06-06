@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outreach Engine</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <div>
+        <h1>Outreach Engine</h1>
+        <p class="subtitle">Automated outreach pipeline (Ocean.io → Prospeo → Eazyreach → Brevo)</p>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Start pipeline</h2>
+      <div class="row">
+        <input id="domain" class="input" placeholder="Company domain (e.g. zoho.com)" />
+        <button id="startBtn" class="btn">Start Pipeline</button>
+      </div>
+      <div id="error" class="error" style="display:none"></div>
+    </section>
+
+    <section class="card">
+      <h2>Progress</h2>
+      <ul id="progressList" class="progress"></ul>
+    </section>
+
+    <section class="card">
+      <h2>Results</h2>
+      <div class="grid">
+        <div class="metric">
+          <div class="label">Companies discovered</div>
+          <div id="companiesFound" class="value">0</div>
+        </div>
+        <div class="metric">
+          <div class="label">Contacts discovered</div>
+          <div id="contactsFound" class="value">0</div>
+        </div>
+        <div class="metric">
+          <div class="label">Emails resolved</div>
+          <div id="emailsResolved" class="value">0</div>
+        </div>
+        <div class="metric">
+          <div class="label">Emails ready (drafts)</div>
+          <div id="emailsReady" class="value">0</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="confirm" id="confirmPanel" style="display:none">
+        <h3>Confirmation</h3>
+        <p>Ready to send <b id="confirmCount">0</b> emails.</p>
+        <button id="sendBtn" class="btn primary">Send Emails</button>
+        <div class="small">A preview of up to 10 emails will be shown after sending.</div>
+      </div>
+
+      <div id="previewPanel" style="display:none; margin-top: 16px">
+        <h3>Send results</h3>
+        <div class="row">
+          <div>Sent: <b id="sentCount">0</b></div>
+          <div>Skipped/Failed: <b id="skippedCount">0</b></div>
+        </div>
+        <div id="previews" class="previews"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
+
